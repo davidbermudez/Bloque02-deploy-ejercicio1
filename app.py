@@ -24,9 +24,6 @@ def index():
     f.write(str(count))
     f.close()
 
-    # Force crash linter flake8
-    x = 1
-
     # Render HTML with count variable
     return render_template("index.html", count=count, time=time, tema="gold")
 
