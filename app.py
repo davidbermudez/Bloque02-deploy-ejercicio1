@@ -24,7 +24,7 @@ def index():
     f.write(str(count))
     f.close()
 
-    # Force crash flake8
+    # Force crash linter flake8
     x = 1
 
     # Render HTML with count variable
