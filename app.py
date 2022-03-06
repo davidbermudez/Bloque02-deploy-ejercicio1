@@ -5,10 +5,11 @@ import locale
 app = Flask(__name__)
 locale.setlocale(locale.LC_TIME, '')
 
+
 @app.route("/")
 def index():
     # Get current date and time
-    the_time = datetime.now().strftime("%A, %d %b %Y %H:%M")
+    time = datetime.now().strftime("%A, %d %b %Y %H:%M")
 
     # Load current count
     f = open("count.txt", "r")
@@ -16,15 +17,18 @@ def index():
     f.close()
 
     # Increment the count
-    count += 1  
+    count += 1
 
     # Overwrite the count
-    f = open("count.txt", "w")  
-    f.write(str(count)) 
-    f.close()   
+    f = open("count.txt", "w")
+    f.write(str(count))
+    f.close()
+
+    # Force crash flake8
+    x = 1
 
     # Render HTML with count variable
-    return render_template("index.html", count=count, the_time=the_time, tema="gold")
+    return render_template("index.html", count=count, time=time, tema="gold")
 
 
 if __name__ == "__main__":
